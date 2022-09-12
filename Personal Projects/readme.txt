@@ -4,6 +4,6 @@ Each project contains its own "readme" file that goes into greater depth.
 If each project were to be ordered by difficulty, it would likely be:
 
 1. Proximity Matchmaker
-2. Sudoku Solver
-3. Word Search Generator
+2. SudokuSolver
+3. WordSearch
 4. Wordle

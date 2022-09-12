@@ -1,0 +1,1 @@
+This folder contains every project that I completed while taking Data Structures.

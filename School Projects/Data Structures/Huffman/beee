@@ -1,0 +1,42 @@
+ArrayList<Character> allCharacters = new ArrayList<Character>();
+        while(StdIn.hasNextChar()){
+            allCharacters.add(StdIn.readChar());
+        }
+        ArrayList<Character> uniqueCharacters = new ArrayList<Character>();
+        boolean isUnique = true;
+        for (char character : allCharacters){
+            isUnique = true;
+            for (char uniqueCharacter : uniqueCharacters){
+                if(character == uniqueCharacter){
+                    isUnique = false;
+                }
+            }
+            if (isUnique == true){
+                uniqueCharacters.add(character);
+            }
+        }
+        int[] occurances = new int [uniqueCharacters.size()];
+        for(int i = 0; i < allCharacters.size(); i++){
+            for(int j = 0; j < uniqueCharacters.size(); j++){
+                if (allCharacters.get(i) == uniqueCharacters.get(j)){
+                    occurances[j]++;
+                }
+            }
+        }
+        double[] frequencies = new double[occurances.length];
+        for (int i = 0; i < occurances.length; i++){
+            frequencies[i] = (double) (occurances[i]) / allCharacters.size();
+        }
+        sortedCharFreqList = new ArrayList<CharFreq>();
+        for(int i = 0; i < frequencies.length; i++){
+            CharFreq newItem = new CharFreq(uniqueCharacters.get(i), frequencies[i]);
+            sortedCharFreqList.add(newItem);
+        }
+        if(sortedCharFreqList.size() < 2){
+            if(sortedCharFreqList.get(0).getCharacter() == 127){
+                sortedCharFreqList.add(new CharFreq((char) 0, 0));
+            }else{
+                sortedCharFreqList.add(new CharFreq((char) (sortedCharFreqList.get(0).getCharacter() + 1), 0));
+            }
+            }
+            Collections.sort(sortedCharFreqList);

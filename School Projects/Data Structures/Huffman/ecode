@@ -1,0 +1,80 @@
+ArrayList<Character> chars = new ArrayList<Character>();
+        ArrayList<CharFreq> arr = new ArrayList<CharFreq>();
+      
+        
+        while (StdIn.hasNextChar() == true){
+            chars.add(StdIn.readChar());
+        }
+
+        int count = chars.size();
+
+        while(chars.isEmpty() == false){
+            if(arr.isEmpty() == true){
+                CharFreq n = new CharFreq(chars.get(0), 1);
+                arr.add(n);
+                chars.remove(0);
+            }
+            
+            boolean test = false;
+            int j = 0;
+            while(j < arr.size()){
+                if((chars.isEmpty() == false)){
+                if ((arr.get(j).getCharacter() == chars.get(0))){
+                    test = true;
+                    break;
+                }
+            }
+                j++;
+            
+            }
+            if (test == true){
+                arr.get(j).setProbOcc((arr.get(j).getProbOcc()) + 1);
+                chars.remove(0);
+            }
+            else{
+                if (chars.isEmpty() == false){
+                CharFreq n = new CharFreq(chars.get(0), 1);
+                arr.add(n);
+                chars.remove(0);
+                }
+            }
+            
+        }
+
+        if (arr.size() == 1){
+            
+            int tempValue = (int)(arr.get(0).getCharacter());
+            int tempValue2;
+            char value;
+
+            if(tempValue == 127){
+                tempValue2 = 0;
+            }
+            else{
+                tempValue2 = tempValue + 1;
+            }
+
+            value = (char)(tempValue2);
+
+            CharFreq extra = new CharFreq(value, 0);
+            arr.add(extra);
+        }
+
+        for (int i = (arr.size() - 1); i > 0; i--){
+            for (int j = 1; j <= i; j++){
+                if (arr.get(j-1).getProbOcc() > arr.get(j).getProbOcc()){
+                    CharFreq temp = new CharFreq();
+                    temp = arr.get(j - 1);
+                    arr.set(j - 1, arr.get(j));
+                    arr.set(j, temp);
+                }
+            }
+        }
+
+        for (int i = 0; i < arr.size(); i++){
+            arr.get(i).setProbOcc((arr.get(i).getProbOcc())/count);
+        }
+
+        
+
+        sortedCharFreqList = arr;

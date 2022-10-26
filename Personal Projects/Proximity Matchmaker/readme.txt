@@ -1,5 +1,5 @@
 This was a summer project that I completed on my own that was intended to be used as the main feature in a dating app that was in the process of being made by one of my suitemates from freshman year. 
-It is written in Swift/SwiftUI using XCode as the IDE. 
+It is written in Swift/SwiftUI using XCode as the IDE. It was written for iOS 15 and tested three seperate iPhone 13s.
 For security reasons and also for simplicity, I have only included files that contain the actual code, meaning that things like server-side information, XCode settings, and other similar information is not included in this folder.
 Despite this, the application I made should be easily reproducible if necessary by copying the code and setting up XCode/server-side settings accordingly.
 
